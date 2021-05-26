@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div> This is a home page</div>
+<ul>
+    <li><a href="{% url 'product-list' %}">Product List</a></li>
+    <li><a href="{% url 'about' %}">About shop</a></li>
+    <li><a href="{% url 'contacts' %}">Contacts</a></li>
+
+
+</ul>
+{% endblock content %}

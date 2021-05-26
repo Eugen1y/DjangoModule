@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Information from shop</h2>
+
+<ul>
+
+    <li>The shop is located in Kharkov</li>
+    <li><a href="{% url 'contacts' %}">Contacts</a></li>
+
+</ul>
+{% endblock content %}
+
+{% block main_page %}
+<a href="{% url 'home' %}">homepage</a>
+{% endblock main_page%}

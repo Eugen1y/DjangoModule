@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% if request.user.is_staff %}
+<form method="post" action="{% url 'product-create' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Добавить товар</button>
+</form>
+        {% else %}
+        <div>This is not for you!</div>
+{% endif %}
+{% endblock %}
