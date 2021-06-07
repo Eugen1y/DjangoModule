@@ -9,7 +9,7 @@
       <p>{{ request.user.username }}</p>
       <p>{{ request.user.first_name|title }} {{ request.user.last_name|title }}</p>
       <p>Email: {{ request.user.email }}</p>
-        <p>Money: {{ request.userprofile.money }}</p>
+        <p>Money: {{ request.user.userprofile.balance }}</p>
     </div>
   </div>
 {% endblock %}

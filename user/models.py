@@ -2,5 +2,13 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class UserProfile(User):
-    money = models.PositiveIntegerField(default=10_000)
+class UserProfile(models.Model):
+
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    balance = models.DecimalField(
+        max_digits=10,
+        decimal_places=2,
+        default=10_000,
+        verbose_name='User balance'
+    )
+
