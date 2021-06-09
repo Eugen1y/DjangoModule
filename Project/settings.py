@@ -30,7 +30,7 @@ ALLOWED_HOSTS = []
 
 
 INSTALLED_APPS = [
-    'order',
+    'order.apps.OrderConfig',
     'cart',
     'product.apps.ProductConfig',
     'user.apps.UserConfig',

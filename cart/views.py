@@ -43,31 +43,3 @@ def cart_detail(request):
     return render(request, 'cart/detail.html', {'cart': cart})
 
 
-class OrderCreate(LoginRequiredMixin, CreateView):
-    model = Order
-    template_name = 'order/create.html'
-
-    def post(self, *args, **kwargs):
-        cart = Cart(request)
-        form = OrderCreateForm
-        if form.is_valid(self):
-            order = form.save(self)
-            for item in cart:
-                OrderItem.objects.create(
-                    order = order,
-                    product=item['product'],
-                    price=item['price'],
-                    quantity=item['quantity']
-                )
-                cart.clear()
-                return render(request, 'order/created.html',
-                              {'order': order})
-
-
-
-
-
-
-
-
-
