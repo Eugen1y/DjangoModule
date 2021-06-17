@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'order.apps.OrderConfig',
-    'cart',
     'product.apps.ProductConfig',
     'user.apps.UserConfig',
     'view.apps.ViewConfig',
@@ -69,7 +68,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'cart.context_processors.cart'
 
             ],
         },
@@ -81,15 +79,11 @@ WSGI_APPLICATION = 'Project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {'default': {
-    'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    # 'NAME': BASE_DIR / 'db.sqlite3',
-    'HOST': 'localhost',
-    'PORT': '5432',
-    'NAME': 'shop',
-    'USER': 'shop',
-    'PASSWORD': 'password',
-}
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
 }
 
 # Password validation

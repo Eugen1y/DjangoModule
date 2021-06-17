@@ -40,7 +40,7 @@ class Product(models.Model):
     description = models.TextField(blank=True, verbose_name='Описание')
     category = models.ForeignKey(Category, on_delete=models.PROTECT, related_name='product', verbose_name='Категория')
     discount = models.DecimalField(max_digits=10, decimal_places=2, blank=True, null=True, verbose_name='Скидка')
-    #money = models.DecimalField(max_digits=10, decimal_places=2, default=10000)
+
 
     def __repr__(self):
         return f"<product ('{self.id}')>"

@@ -4,7 +4,6 @@
     <img src="{{ product.image }}" class="card-img-top" alt="{{ product.slug }}">
     <div class="card-body">
       <h5 class="card-title">{{ product }}</h5>
-      <span>{{ product.rate|default_if_none:"unrated" }}</span>
       <p class="text-end">{{ product.price|floatformat:"2" }} $</p>
       <p class="card-text">{{ product.description|truncatewords:"10" }}</p>
     <p class="text-end">Amount: {{ product.amount }}</p>
@@ -15,6 +14,13 @@
     <div class="card-footer">
       <small class="d-flex text-muted">{{ product.category }}</small>
       <div class="d-flex">
+       {% if request.user.is_authenticated %}
+              <form action="{% url "order:add" %}" method="post" >
+                {% csrf_token %}
+                <input type="hidden" name="product_id" value="{{ product.pk }}">
+                <button type="submit" class="btn btn-outline-primary">Add to Cart</button>
+              </form>
+            {% endif %}
         <a href="{% url "product-detail" product.pk  %}" class="btn btn-outline-primary">View Details</a>
               {% if request.user.is_staff %}
           <div class="d-flex">

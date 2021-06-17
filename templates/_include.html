@@ -20,19 +20,11 @@
                 {% if request.user.is_staff %}
                     <a href="{% url 'admin:index' %}" class="btn">Admin</a>
                 {% endif %}
-                    <div class="cart">
-                        {% with total_items=cart|length %}
-                            {% if cart|length > 0 %}
-                                Your cart:
-                                <a href="{% url "cart:cart_detail" %}">
-                                    {{ total_items }} item{{ total_items|pluralize }},
-                                    ${{ cart.get_total_price }}
-                                </a>
-                            {% else %}
-                                Your cart is empty.
-                            {% endif %}
-                        {% endwith %}
-                    </div>
+                <a href="{% url "order:checkout" %}" class="nav-link">My Cart
+              {% if cart_entities_count %}
+                <span>{{ cart_entities_count }}</span>
+              {% endif %}
+                </a>
                 <a href="{% url "profile" %}" class="btn">{{ request.user.username }}</a>
                 <a href="{% url 'logout' %}" class="btn">Выход</a>
             {% else %}

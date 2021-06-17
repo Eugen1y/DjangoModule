@@ -4,10 +4,9 @@ from django.views.generic import (
     DetailView,
     CreateView,
     UpdateView,
-    DeleteView
 )
 
-from cart.forms import CartAddProductForm
+
 from product.models import Product
 
 http_method_names = ['get', 'post', 'update', 'delete']
@@ -22,7 +21,6 @@ class ProductsList(ListView):
 class ProductDetail(DetailView):
     model = Product
     template_name = 'product/product_detail.html'
-    extra_context = {'cart_product_form': CartAddProductForm()}
 
 
 class ProductCreate(LoginRequiredMixin, CreateView):
