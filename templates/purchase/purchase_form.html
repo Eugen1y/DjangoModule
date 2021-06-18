@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block doctitle %}Purchase Checkout | {{ block.super }}{% endblock %}
+{% block content %}
+  <form method="post" class="row row-cols-2">
+    {% csrf_token %}
+    <div class="col">
+      {{ formset.management_form }}
+      {% for form in formset %}
+        <div class="form-group">
+          <label for="{{ form.quantity.id_for_label }}" class="col">{{ form.instance }}</label>
+          {{ form.quantity }}
+          {{ form.id }}
+        </div>
+      {% endfor %}
+    </div>
+    <div class="col">
+      {{ form.as_p }}
+    </div>
+    <div class="col-12">
+      <input type="submit" class="btn btn-primary" value="Purchase">
+    </div>
+  </form>
+{% endblock content %}
