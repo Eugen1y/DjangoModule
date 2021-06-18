@@ -1,8 +1,8 @@
 venv/
 db.sqlite3
 __pycache__
-user/__pycache__
-product/__pycache__
-project/__pycache__
-templates/__pycache__
-order/__pycache__
+user/__pycache__/
+product/__pycache__/
+project/__pycache__/
+templates/__pycache__/
+order/__pycache__/
